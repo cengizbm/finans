@@ -1,0 +1,7 @@
+# Windows/Mac/Linux arasında satır sonu uyumsuzluğunu önler.
+* text=auto eol=lf
+hooks/pre-commit text eol=lf
+hooks/pre-push text eol=lf
+*.png binary
+*.jpg binary
+*.woff2 binary

@@ -1,0 +1,3 @@
+#!/bin/sh
+# Mantık hooks/checks.mjs içinde. Bu dosya yalnızca onu çağırır.
+exec node "$(dirname "$0")/checks.mjs" pre-commit

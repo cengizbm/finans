@@ -1,0 +1,79 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Fraunces Variable', Georgia, serif;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+
+  --color-paper: #f5f0e6;
+  --color-paper-deep: #ebe4d3;
+  --color-card: #fbf8f1;
+  --color-ink: #1e2a24;
+  --color-muted: #5b655e;
+  --color-rule: #d9d0bb;
+  --color-income: #1f5c45;
+  --color-expense: #b2442b;
+  --color-brass: #9c7a24;
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
+  }
+  body {
+    min-width: 320px;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-brass);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* Defter çizgisi: bakiye alanının arkasında yatay çizgiler. */
+.ledger-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 35px,
+    var(--color-rule) 35px,
+    var(--color-rule) 36px
+  );
+}
+
+dialog::backdrop {
+  background: rgb(30 42 36 / 0.45);
+}
+
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+.row-enter {
+  animation: row-in 280ms ease-out;
+}
+.pop-in {
+  animation: pop-in 200ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
